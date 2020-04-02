@@ -1,10 +1,10 @@
 <template>
     <div>
         <div id="screen" :class="state" @click="onClickScreen">{{message}}</div><!--v-bind:-->
-        <div>
-            <div>평균시간⏰ {{result.reduce((a, c) => a + c, 0) / result.length || 0 }}ms</div><!--reduce 배열의 값을 다 더해줌, 평균 구하는코드{{}}-->
+        <template v-if="result.length"><!--div와 같은 역할, v-show와 v-if/else 차이 구분해서 사용!-->
+            <div>평균시간⏰ {{average}}ms</div><!--reduce 배열의 값을 다 더해줌, 평균 구하는코드{{}}-->
             <button @click="onReset">리셋</button><!--v-on:click-->
-        </div>
+        </template>
     </div>
 </template>
 
@@ -19,6 +19,11 @@
                 startTime: 0,
                 endTime: 0,
                 timeOut: null,
+            }
+        },
+        computed: {
+            average() {
+                return this.result.reduce((a, c) => a + c, 0) / this.result.length || 0;
             }
         },
         methods: {
