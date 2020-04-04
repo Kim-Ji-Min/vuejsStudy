@@ -37,15 +37,20 @@
 <style scoped>
     .ball{
         display: inline-block;
-        border: 1px solid #555;
         -webkit-border-radius: 100%;
         -moz-border-radius: 100%;
         border-radius: 100%;
         width: 50px;
         height: 50px;
         line-height: 50px;
+        font-weight: 800;
         font-size: 20px;
         text-align: center;
         margin-right: 20px;
+        transition: all 0.2s ease-in-out;
+    }
+    .ball:hover, .ball:active, .ball:focus{
+        transform: translateY(-5px);
+        box-shadow: 1px 1px 1px 1px #ccc;
     }
 </style>

@@ -1,20 +1,24 @@
 <template>
-    <div>
-        <div>당첨 숫자</div>
-        <div id="resultScreen">
-            <lotto-ball v-for="ball in winBalls" :key="ball" :number="ball"></lotto-ball>
-            <!-- props도 바인드 가능
-            해당 부분 v-for 에러뜨는데 ㅠ_ㅠ 제로초랑 가능 코드임!
-            vue.runtime.esm.js:620 [Vue warn]: Duplicate keys detected: '41'. This may cause an update error.(found in <Root>)
+    <b-container>
+        <b-row class="text-center">
+            <b-col md="12">
+                <h2 class="m-3 font-weight-bold">당첨 숫자</h2>
+            </b-col>
 
-            스택오버플로우, 깃헙 보니 v-for="(item, idx) in items" :key="idx" 로 하면된다는데 에러남--
-            watch 함수지워도 해결됨..
-            -->
-        </div>
-        <div>보너스</div>
-        <lotto-ball v-if="bonus" :number="bonus"></lotto-ball>
-        <button v-if="redo" @click="onClickRedo">한번 더!</button>
-    </div>
+            <b-col md="12" ref="resultScreen">
+                <lotto-ball v-for="ball in winBalls" :key="ball" :number="ball"></lotto-ball>
+            </b-col>
+
+            <b-col md="12">
+                <h3 class="m-3 font-weight-bold">보너스</h3>
+                <lotto-ball v-if="bonus" :number="bonus"></lotto-ball>
+            </b-col>
+
+            <b-col md="12">
+                <b-button variant="outline-dark" class="m-5 px-5 font-weight-bold" v-if="redo" @click="onClickRedo">한번 더!</b-button>
+            </b-col>
+        </b-row>
+    </b-container>
 </template>
 
 <script>
@@ -31,7 +35,7 @@
         return [...winNumbers,bonusNumber];
     }
 
-    import LottoBall from "./LottoBall";
+    import LottoBall from "./LottoBall"
 
     export default {
         name: "LottoGenerator",

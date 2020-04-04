@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.10.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
