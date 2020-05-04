@@ -81,30 +81,30 @@
             }
         },
         beforeCreate() {
-            console.log('beforeCreated');
+            //console.log('beforeCreated');
         },
         created() {
-            console.log('created'); //컴포넌트가 보여지게 될 때(보여지긴 하지만, 화면 나타나기 전)
+            //console.log('created'); 컴포넌트가 보여지게 될 때(보여지긴 하지만, 화면 나타나기 전)
         },
         beforeMount() {
-            console.log('beforeMounted');
+            //console.log('beforeMounted');
         },
         mounted() {
-            console.log('mounted'); //컴포넌트가 화면에 나타난 후
+            //console.log('mounted'); 컴포넌트가 화면에 나타난 후
             this.changeHand();
         },
         beforeUpdate() {
-            console.log('beforeUpdated');
+            //console.log('beforeUpdated');
         },
         updated() {
-            console.log('updated'); //화면에 데이터가 바뀌어서, 화면이 다시 그려질 때
+            //console.log('updated'); 화면에 데이터가 바뀌어서, 화면이 다시 그려질 때
         },
         beforeDestroy() {
-            console.log('beforeDestroyed');
+            // console.log('beforeDestroyed');
             clearInterval(this.interval); //메모리 누수 방지용
         },
         destroyed() {
-            console.log('destroyed'); //화면에 있다가 없어져버렸을 때
+            //console.log('destroyed'); 화면에 있다가 없어져버렸을 때
         }
     }
 </script>
