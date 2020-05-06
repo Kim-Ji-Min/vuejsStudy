@@ -13,6 +13,7 @@
 </template>
 
 <script>
+    import Vue from 'vue';
     import TableComponent from "./component/TableComponent";
 
     export default {
@@ -32,6 +33,11 @@
             TableComponent,
         },
         methods: {
+            //주의! 뷰에서 배열의 값을 인덱스로 바꾸면 화면에 반영이 안됩니다...ㅜ_ㅜ - 뷰의 구조적 한계(js의 한계) ex)this.tableData[0][1] = 'O'; 작동하지않음
+            //아래는 한계벗어날 수 있는 방법 Vue.set = this.$set     참고 : https://vuejs.org/v2/api/#vm-set
+            onChangeData() {
+                this.$set(this.tableData[1], 0, 'X'); //1, 0 의 좌표에 X를 넣는다
+            }
         },
         mounted() {
         },
